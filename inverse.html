@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inverse</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <h4>Choississez un ellipoide de référence :</h4>
+        <div>
+            {{inverseform.ellipsoid}}
+        </div>
+        <h4> Grand axe (en m)</h4>
+        <div>
+            {{inverseform.grand}}
+        </div>
+        <h4> Petit axe (en m)</h4>
+        <div>
+            {{inverseform.petit}}
+        </div>
+        <h4>Coordonnées du point de départ</h4>
+        <h4>Latitude :</h4>
+        <div>{{inverseform.latitude}}</div>
+        <h4>Longitude :</h4>
+        <div>{{inverseform.longitude}}</div>
+        <h4>Coordonnées du point d'arrivé :</h4>
+        <h4>latitude :</h4>
+        <div>{{inverseform.latitude0}}</div>
+        <h4>Longitude :</h4>
+        <div>{{inverseform.longitude0}}</div>
+        <button type="submit" name="action" value="Calculer" class="btn btn-primary">Calculer </button>
+        <button type="submit" name="action =" value="Visualiser" class="btn btn-primary">Visualiser </button>
+    </form>
+    <div>
+        <h2>l'azimut direct :</h2>
+        <div>{{azdirect}}</div>
+        <h4>l'azimut direct :</h4>
+        <div>{{azinverse}}</div>
+        <h4>la distance géodésique :</h4>
+        <div>{{distance}}</div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).on('click', '#previous', function() {
+            {
+                window.history.go(-1);
+            }
+        });
+    </script>
+</body>
+
+</html>
+{% endblock content %}
